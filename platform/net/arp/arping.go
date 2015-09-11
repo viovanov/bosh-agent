@@ -86,7 +86,7 @@ func (a arping) broadcastMACAddress(address boship.InterfaceAddress) {
 
 	ifaceName := address.GetInterfaceName()
 
-	_, _, _, err = a.cmdRunner.RunCommand("arping", "-c", "1", "-U", "-I", ifaceName, ip)
+	_, _, _, err = a.cmdRunner.RunCommand("arping", "-c", "1", "-A", "-I", ifaceName, ip)
 	if err != nil {
 		a.logger.Info(arpingLogTag, "Ignoring arping failure: %s", err.Error())
 	}
